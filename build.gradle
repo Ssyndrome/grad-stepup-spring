@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.flywaydb.flyway" version "5.1.4"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -28,9 +32,18 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.flywaydb:flyway-core')
+    compile('org.flywaydb:flyway-core:5.1.4')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
 
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+
+}
+
+flyway {
+    url = 'jdbc:mysql://127.0.0.1/grad_stepup'
+    user = 'bj_grad'
+    password = ''
 }
