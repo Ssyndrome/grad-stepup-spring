@@ -17,8 +17,6 @@ public class User {
     private String telephoneNumber;
     private String password;
 
-    private int role_id;
-
     @OneToOne
     private Role role;
 

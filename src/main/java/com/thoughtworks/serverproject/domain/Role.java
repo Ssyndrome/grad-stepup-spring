@@ -15,4 +15,7 @@ public class Role {
     private int id;
     private String code;
     private String name;
+
+    @OneToOne
+    private User user;
 }

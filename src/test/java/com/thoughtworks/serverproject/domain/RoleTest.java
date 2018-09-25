@@ -17,4 +17,11 @@ class RoleTest {
         assertThat(role.getCode()).isNull();
         assertThat(role.getName()).isNull();
     }
+
+    @Test
+    void should_valid_an_role_with_user() {
+        Role role = new Role();
+
+        assertThat(role.getUser()).isNull();
+    }
 }
