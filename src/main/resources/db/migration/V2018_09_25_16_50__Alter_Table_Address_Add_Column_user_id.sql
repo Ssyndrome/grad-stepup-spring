@@ -1,0 +1,1 @@
+ALTER TABLE `t_address` ADD COLUMN `user_id` INT;

@@ -4,24 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "t_user")
-public class User {
+@Table(name = "t_classroom")
+public class Classroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String telephoneNumber;
-    private String password;
 
-    @OneToOne
-    private Role role;
-
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<Address> addresses;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "classroom_id")
+    private List<Student> students = new ArrayList<>();
 }

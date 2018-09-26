@@ -9,19 +9,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "t_user")
-public class User {
+@Table(name = "t_address")
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String telephoneNumber;
-    private String password;
 
-    @OneToOne
-    private Role role;
+    private String detail;
 
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<Address> addresses;
+    @ManyToOne
+    private User user;
 }

@@ -24,4 +24,11 @@ class RoleTest {
 
         assertThat(role.getUser()).isNull();
     }
+
+    @Test
+    void should_get_valid_privileges_as_new() {
+        Role role = new Role();
+
+        assertThat(role.getPrivileges()).isNull();
+    }
 }

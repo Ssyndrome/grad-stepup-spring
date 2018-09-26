@@ -7,6 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -17,5 +18,12 @@ class PrivilegeTest {
         assertThat(privilege.getId()).isZero();
         assertThat(privilege.getName()).isNull();
         assertThat(privilege.getCode()).isNull();
+    }
+
+    @Test
+    void should_get_valid_roles_as_new() {
+        Privilege privilege = new Privilege();
+
+        assertThat(privilege.getRoles()).isNull();
     }
 }
